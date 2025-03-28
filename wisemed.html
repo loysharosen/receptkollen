@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>WiseMed</title>
+    
+    <link rel="icon" type="image/x-icon" href="./img/icons8-pill-100.png">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/asciinema-player.css" />
+</head>
+
+<body id="wisemed">
+    <div id="demo"></div>
+    <script src="/asciinema-player.min.js"></script>
+    <script>
+	    AsciinemaPlayer.create('/wisemed.cast', document.getElementById('demo'), {
+            cols: 65, rows: 20,
+        });    
+    </script>
+</body>
+</html>
