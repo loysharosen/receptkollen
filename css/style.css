@@ -20,6 +20,11 @@ body#wisemed {
     justify-content: center;
 }
 
+#link-list {
+    display: flex;
+    flex-direction: column;
+}
+
 #demo {
     width: 50vw;
 }
