@@ -1,20 +1,105 @@
 <!DOCTYPE html>
-<html lang="us-en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Felix Loysha-Rosén</title>
+    <title>Receptkollen</title>
     
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Receptkollen">
+    <meta name="description" content="Ett verktyg som hjälper dig beräkna förväntat slutdatum på ett läkemedelsrecept">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://loysharosen.com/receptkollen.html">
+    <meta property="og:title" content="Receptkollen">
+    <meta property="og:description" content="Ett verktyg som hjälper dig beräkna förväntat slutdatum på ett läkemedelsrecept">
+    <meta property="og:image" content="./img/receptkollen.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://loysharosen.com/receptkollen.html">
+    <meta property="twitter:title" content="Receptkollen">
+    <meta property="twitter:description" content="Ett verktyg som hjälper dig beräkna förväntat slutdatum på ett läkemedelsrecept">
+    <meta property="twitter:image" content="./img/receptkollen.png">
+
+    <!-- LinkedIn -->
+    <meta property="og:site_name" content="Receptkollen">
+    <meta property="og:locale" content="sv_SE">
+    <meta property="og:image" content="./img/receptkollen.png">
+
     <link rel="icon" type="image/x-icon" href="./img/icons8-pill-100.png">
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 
-<body>
-    <div id="link-list">
-        <a href="./receptkollen.html">Receptkollen</a>
-        <a href="./wisemed.html">WiseMed</a>
+<body id="receptkollen">
+    <div class="container">
+        <h1>Receptkollen</h1>
+
+        <button class="clickable">
+            <img id="question-mark" src="./img/question-mark.png">
+        </button>
     </div>
-    <script type="module" src="./js/aidrx.js"></script>
+
+    <div class="description hidden">
+        <p>Receptkollen hjälper dig beräkna förväntat slutdatum på ett läkemedelsrecept.</p>
+        <p>Fyll i obligatoriska fält (markerade med *). Lämna övriga tomma för 1.</p>
+        <p>Receptkollen började som ett Python-program. <a href="./wisemed.html">Följ länken för att se hur Python-programmet fungerade.</a></p>
+    </div>
+
+    <form id="aidrx-form">
+        <div class="input-row">
+            <div class="input-group">
+                <label for="number-of-doses">*Antal i förpackningen (tabletter/ml/etc):</label>
+                <input
+                    autofocus
+                    type="text"
+                    id="number-of-doses"
+                    placeholder=" t.ex. 100"
+                    inputmode="decimal"
+                    pattern="\d*[.,]?\d*"
+                    required
+                />
+            </div>
+            <div class="input-group">
+                <label for="number-of-expeditions">Antal förpackningar:</label>
+                <input
+                    type="text"
+                    id="number-of-expeditions"
+                    placeholder=" t.ex. 3"
+                    step="1"  
+                    inputmode="numeric"
+                />
+            </div>
+        </div>
+        <label id="doses-per-day-label" for="doses-per-day">Dosering per dag (tabletter/ml/etc):</label>
+        <input
+            type="text"
+            id="doses-per-day"
+            placeholder=" t.ex. 1,5"
+            inputmode="decimal"
+        />
+        <label for="date">*Startdatum:</label>
+        <input
+            type="date"
+            id="date"
+            required
+        />
+        <div class="button-container">
+            <button id="calculate-button" type="submit" value="Calculate">Börja om</button>
+        </div>
+    </form>
+
+    <div id="dynamic-result"></div>
+
+    <div id="result-list"></div>
+
+    <footer id="question-mark-link">
+        <a target="_blank" href="https://www.flaticon.com/free-icons/question" title="question icons">Question icons created by Delwar018 - Flaticon.</a>
+        <a target="_blank" href="https://icons8.com/icon/9537/pill">Pill</a> icon by <a target="_blank" href="https://icons8.com">Icons8.</a>
+    </footer>
+
+    <script type="module" src="./js/receptkollen.js"></script>
 </body>
 </html>
